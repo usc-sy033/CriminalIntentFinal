@@ -1,5 +1,5 @@
 package android.bignerdranch.criminalIntent;
-//task 2 version
+//task 2
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -30,7 +31,7 @@ public class CrimeFragment extends Fragment {
     private EditText mTitleField;
     private Button mDateButton;
     private CheckBox mSolvedCheckBox;
-    //private Button mDeleteButton;
+    private Button mDeleteButton;
     private Button mSuspectButton;
     private Button mReportButton;
     private static final String DIALOG_DATE = "DialogDate";
@@ -95,6 +96,15 @@ public class CrimeFragment extends Fragment {
 
         });
 
+        mDeleteButton = v.findViewById(R.id.remove_crime);
+        mDeleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CrimeLab.get(getActivity()).deleteCrime(mCrime);
+                getActivity().finish();
+            }
+        });
+
         mSolvedCheckBox = (CheckBox)v.findViewById(R.id.crime_solved);
         mSolvedCheckBox.setChecked(mCrime.isSolved());
         mSolvedCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -133,6 +143,22 @@ public class CrimeFragment extends Fragment {
 
         return v;
     }
+
+    //stuff for delete crime
+    /*@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.remove_crime:
+                UUID crimeId = (UUID) getArguments().getSerializable(ARG_CRIME_ID);
+                CrimeLab crimeLab = CrimeLab.get(getActivity());
+                mCrime = crimeLab.getCrime(crimeId);
+                crimeLab.deleteCrime(mCrime);
+                getActivity().finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }*/
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
