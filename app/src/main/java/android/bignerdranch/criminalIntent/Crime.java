@@ -1,5 +1,7 @@
 package android.bignerdranch.criminalIntent;
 
+import org.json.JSONObject;
+
 import java.util.Date;
 import java.util.UUID;
 
@@ -21,6 +23,7 @@ public class Crime {
         mId = id;
         mDate = new Date();
     }
+
 
     public UUID getId() {
         return mId;
