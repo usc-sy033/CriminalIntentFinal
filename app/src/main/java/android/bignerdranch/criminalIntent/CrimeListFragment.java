@@ -83,8 +83,8 @@ public class CrimeListFragment extends Fragment {
                 updateSubtitle();
                 return true;
             case R.id.show_webview:
-                Intent i = CrimeActivity
-                        .webIntent(getActivity(), "https://www.wikihow.com/Check-In-on-Facebook");
+                Intent i = HelpWebPageActivity
+                        .webIntent(getActivity(),"https://www.wikihow.com/Check-In-on-Facebook");
                 startActivity(i);
                 return true;
 

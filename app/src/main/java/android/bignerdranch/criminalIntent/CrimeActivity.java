@@ -23,10 +23,7 @@ public class CrimeActivity extends SingleFragmentActivity {
 
 
 
-    public static Intent webIntent(Context packageContext, String url) {
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.wikihow.com/Check-In-on-Facebook"));
-        return i;
-    }
+
 
     /*@Override
     protected void onCreate(Bundle savedInstanceState) {
