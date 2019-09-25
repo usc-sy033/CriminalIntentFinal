@@ -30,6 +30,7 @@ public class CrimeListFragment extends Fragment {
     private boolean mSubtitleVisible;
     private static final String SAVED_SUBTITLE_VISIBLE = "subtitle";
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,10 +82,19 @@ public class CrimeListFragment extends Fragment {
                 getActivity().invalidateOptionsMenu();
                 updateSubtitle();
                 return true;
+            case R.id.show_webview:
+                Intent i = CrimeActivity
+                        .webIntent(getActivity(), "https://www.wikihow.com/Check-In-on-Facebook");
+                startActivity(i);
+                return true;
+
+
                 default:
                     return super.onOptionsItemSelected(item);
+
         }
     }
+
 
     private void updateSubtitle(){
         CrimeLab crimeLab = CrimeLab.get(getActivity());

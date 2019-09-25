@@ -10,5 +10,9 @@
         android:id="@+id/show_subtitle"
         android:title="@string/show_subtitle"
         app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/show_webview"
+        android:title="Help"
+        app:showAsAction="ifRoom"/>
 
 </menu>
