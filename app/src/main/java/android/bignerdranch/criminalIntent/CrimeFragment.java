@@ -11,6 +11,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +45,7 @@ public class CrimeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
         //mCrime = new Crime();
         UUID crimeId = (UUID) getActivity().getIntent()
                 .getSerializableExtra(CrimeActivity.EXTRA_CRIME_ID);
@@ -100,7 +103,7 @@ public class CrimeFragment extends Fragment {
         mDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CrimeLab.get(getActivity()).deleteCrime(mCrime);
+                CrimeLab.get(getActivity()).removeCrime(mCrime);
                 getActivity().finish();
             }
         });
@@ -159,6 +162,30 @@ public class CrimeFragment extends Fragment {
                 return super.onOptionsItemSelected(item);
         }
     }*/
+   /** @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.fragment_crime_delete, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_item_delete_crime:
+
+                CrimeLab.get(getActivity()).removeCrime(mCrime);
+//                Intent intent = new Intent(getActivity(), CrimeListActivity.class);
+//                startActivity(intent);
+                getActivity().finish();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+    } **/
+
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

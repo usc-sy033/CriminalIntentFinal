@@ -16,7 +16,7 @@ import java.util.UUID;
 public class CrimeLab {
     private static CrimeLab sCrimeLab;
 
-    //private List<Crime> mCrimes;
+    private List<Crime> mCrimes;
     private Context mContext;
     private SQLiteDatabase mDatabase;
 
@@ -49,12 +49,13 @@ public class CrimeLab {
     }
 
     //stuff for delete crime
-    public void deleteCrime(Crime c) {
+    public void removeCrime(Crime c) {
         mDatabase.delete(
                 CrimeTable.NAME,
                 CrimeTable.Cols.UUID + "=?",
                 new String[] {c.getId().toString()}
         );
+
     }
 
     public List<Crime> getCrimes() {
