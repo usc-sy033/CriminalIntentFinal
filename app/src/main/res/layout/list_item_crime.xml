@@ -43,6 +43,27 @@
         tools:layout_conversion_wrapHeight="50"
         tools:layout_conversion_wrapWidth="185" />
 
+    <TextView
+        android:id="@+id/crime_place"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Crime Place"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/crime_date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/crime_date"
+        tools:layout_conversion_absoluteHeight="19dp"
+        tools:layout_conversion_absoluteWidth="395dp"
+        tools:layout_conversion_wrapHeight="50"
+        tools:layout_conversion_wrapWidth="185"
+        />
+
+
+
     <ImageView
         android:id="@+id/crime_solved"
         android:layout_width="wrap_content"

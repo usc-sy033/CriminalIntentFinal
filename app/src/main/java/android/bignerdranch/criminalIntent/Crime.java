@@ -10,6 +10,7 @@ public class Crime {
     private UUID mId;
     private String mTitle;
     private Date mDate;
+    private String mPlace;
     private boolean mSolved;
     private String mSuspect;
 
@@ -43,6 +44,14 @@ public class Crime {
 
     public void setDate(Date date) {
         mDate = date;
+    }
+
+    public String getPlace() {
+        return mPlace;
+    }
+
+    public void setPlace(String place) {
+        mPlace = place;
     }
 
     public boolean isSolved() {

@@ -32,6 +32,7 @@ public class CrimeFragment extends Fragment {
     private Crime mCrime;
     private EditText mTitleField;
     private Button mDateButton;
+    private EditText mPlaceField;
     private CheckBox mSolvedCheckBox;
     private Button mDeleteButton;
     private Button mSuspectButton;
@@ -90,6 +91,26 @@ public class CrimeFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 mCrime.setTitle(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                //this one too
+            }
+
+        });
+
+        mPlaceField = (EditText) v.findViewById(R.id.crime_place);
+        mPlaceField.setText(mCrime.getPlace());
+        mPlaceField.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // this space is left blank
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                mCrime.setPlace(s.toString());
             }
 
             @Override

@@ -136,6 +136,7 @@ public class CrimeListFragment extends Fragment {
 
         private TextView mTitleTextView;
         private TextView mDateTextView;
+        private TextView mPlaceTextView;
         private Crime mCrime;
         private ImageView mSolvedImageView;
 
@@ -146,6 +147,7 @@ public class CrimeListFragment extends Fragment {
 
             mTitleTextView = (TextView) itemView.findViewById(R.id.crime_title);
             mDateTextView = (TextView) itemView.findViewById(R.id.crime_date);
+            mPlaceTextView = (TextView) itemView.findViewById(R.id.crime_place);
             mSolvedImageView = (ImageView) itemView.findViewById(R.id.crime_solved);
         }
 
@@ -153,6 +155,7 @@ public class CrimeListFragment extends Fragment {
             mCrime = crime;
             mTitleTextView.setText(mCrime.getTitle());
             mDateTextView.setText(mCrime.getDate().toString());
+            mPlaceTextView.setText(mCrime.getPlace());
             mSolvedImageView.setVisibility(crime.isSolved() ? View.VISIBLE : View.GONE);
         }
 
