@@ -11,6 +11,7 @@ public class Crime {
     private String mTitle;
     private Date mDate;
     private String mPlace;
+    private String mDetails;
     private boolean mSolved;
     private String mSuspect;
 
@@ -52,6 +53,14 @@ public class Crime {
 
     public void setPlace(String place) {
         mPlace = place;
+    }
+
+    public String getDetails() {
+        return mDetails;
+    }
+
+    public void setDetails(String details) {
+        mDetails = details;
     }
 
     public boolean isSolved() {

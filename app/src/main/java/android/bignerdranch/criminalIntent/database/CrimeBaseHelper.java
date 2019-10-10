@@ -22,6 +22,7 @@ public class CrimeBaseHelper extends SQLiteOpenHelper {
                 CrimeTable.Cols.TITLE + ", " +
                 CrimeTable.Cols.DATE + ", " +
                 CrimeTable.Cols.PlACE + ", " +
+                CrimeTable.Cols.DETAILS + ", " +
                 CrimeTable.Cols.SOLVED + ", " +
                 CrimeTable.Cols.SUSPECT +
                 ")"
