@@ -12,6 +12,9 @@ public class Crime {
     private Date mDate;
     private String mPlace;
     private String mDetails;
+    private Double mLatitude;
+    private Double mLongitude;
+
     private boolean mSolved;
     private String mSuspect;
 
@@ -61,6 +64,22 @@ public class Crime {
 
     public void setDetails(String details) {
         mDetails = details;
+    }
+
+    public Double getmLatitude() {
+        return mLatitude;
+    }
+
+    public void setmLatitude(Double mLatitude) {
+        this.mLatitude = mLatitude;
+    }
+
+    public Double getmLongitude() {
+        return mLongitude;
+    }
+
+    public void setmLongitude(Double mLongitude) {
+        this.mLongitude = mLongitude;
     }
 
     public boolean isSolved() {
