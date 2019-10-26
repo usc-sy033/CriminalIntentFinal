@@ -38,7 +38,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationRequest;
 
@@ -93,24 +95,27 @@ public class CrimeFragment extends Fragment {
         mClient = new GoogleApiClient.Builder(getActivity())
                 .addApi(LocationServices.API)
                 .addConnectionCallbacks(new GoogleApiClient.ConnectionCallbacks() {
+
                     @Override
                     public void onConnected(@Nullable Bundle bundle) {
                         LocationRequest request = LocationRequest.create();
                         request.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
                         request.setNumUpdates(1);
                         request.setInterval(0);
-
                         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION)
                                 != PackageManager.PERMISSION_GRANTED) {
                             return;
                         }
 
-                        LocationServices.FusedLocationApi.requestLocationUpdates(mClient, request, new LocationListener() {
+                        LocationServices.getFusedLocationProviderClient(getActivity())
+                                .requestLocationUpdates(request, new LocationCallback() {
                             @Override
-                            public void onLocationChanged(Location location) {
-                                Log.i("LOCATION", "Got a fix: " + location);
+                            public void onLocationResult(LocationResult locationResult) {
+                                super.onLocationResult(locationResult);
+                                Location location = locationResult.getLastLocation();
+                                setLocation(location);
                             }
-                        });
+                        }, null);
 
                     }
 
@@ -122,6 +127,18 @@ public class CrimeFragment extends Fragment {
 
                 .build();
     }
+
+    private void setLocation(Location location) {
+        mCrime.setLongitude(location.getLongitude());
+        mCrime.setLatitude(location.getLatitude());
+        mLocationField.setText(
+                getString(R.string.location_text,
+                        mCrime.getLatitude(),
+                        mCrime.getLongitude()));
+
+    }
+
+
 
     @Override
     public void onStart() {
@@ -149,6 +166,20 @@ public class CrimeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_crime, container, false);
         PackageManager packageManager = getActivity().getPackageManager();
+
+
+        mLocationField = v.findViewById(R.id.location_label);
+        mShowMapButton = v.findViewById(R.id.show_map_button);
+        mShowMapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = MapsActivity.newIntent(getContext(),
+                        mCrime.getLatitude(), mCrime.getLongitude());
+                startActivity(intent);
+            }
+
+
+        });
 
         mDateButton = (Button) v.findViewById(R.id.crime_date);
         updateDate();

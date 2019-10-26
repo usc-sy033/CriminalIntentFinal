@@ -6,6 +6,7 @@
     <string name="crime_details_label">Details</string>
     <string name="crime_place_hint">Enter a place for the crime.</string>
     <string name="crime_place_label">Place</string>
+
     <string name="crime_solved_label">Solved</string>
     <string name="date_picker_title">Date of crime:</string>
     <string name="new_crime">New Crime</string>
@@ -24,7 +25,12 @@
     <string name="crime_report_subject">CriminalIntent Crime Report</string>
     <string name="send_report">Send crime report via</string>
     <string name="delete_crime">Delete Crime</string>
+
+
     <string name="title_activity_maps">Map</string>
-
-
+    <string name="map_button">Map</string>
+    <string name="location_title">Map Location</string>
+    <string name="location_text">lat: %1$f\nlong: %2$f</string>
+    <string name="show_map_text">Show Map</string>
+    <string name="google_maps_key">AIzaSyCpOCxsPbl-tXlRIV4nzhnRibIYymdznfY"</string>>
 </resources>

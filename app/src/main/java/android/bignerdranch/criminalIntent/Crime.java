@@ -66,20 +66,20 @@ public class Crime {
         mDetails = details;
     }
 
-    public Double getmLatitude() {
+    public Double getLatitude() {
         return mLatitude;
     }
 
-    public void setmLatitude(Double mLatitude) {
-        this.mLatitude = mLatitude;
+    public void setLatitude(Double latitude) {
+        mLatitude = latitude;
     }
 
-    public Double getmLongitude() {
+    public Double getLongitude() {
         return mLongitude;
     }
 
-    public void setmLongitude(Double mLongitude) {
-        this.mLongitude = mLongitude;
+    public void setLongitude(Double longitude) {
+        mLongitude = longitude;
     }
 
     public boolean isSolved() {

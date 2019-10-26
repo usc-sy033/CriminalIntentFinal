@@ -142,6 +142,8 @@ public class CrimeLab {
         values.put(CrimeTable.Cols.DETAILS, crime.getDetails());
         values.put(CrimeTable.Cols.SOLVED, crime.isSolved() ? 1 : 0);
         values.put(CrimeTable.Cols.SUSPECT, crime.getSuspect());
+        values.put(CrimeTable.Cols.LONGITUDE, crime.getLongitude());
+        values.put(CrimeTable.Cols.LATITUDE, crime.getLatitude());
 
         return values;
     }
