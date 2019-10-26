@@ -2,10 +2,10 @@ package android.bignerdranch.criminalIntent;
 
 import androidx.fragment.app.Fragment;
 
-public class CrimeListActivity extends SingleFragmentActivity {
+public class CheckinsListActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment createFragment() {
-        return new CrimeListFragment();
+        return new CheckinsListFragment();
     }
 }

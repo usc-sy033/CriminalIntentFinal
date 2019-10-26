@@ -1,6 +1,6 @@
 package android.bignerdranch.criminalIntent.database;
 
-public class CrimeDbSchema {
+public class CheckinsDbSchema {
 
     public static final class CrimeTable {
         public static final String NAME = "crimes";

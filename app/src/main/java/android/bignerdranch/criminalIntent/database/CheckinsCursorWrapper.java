@@ -1,19 +1,19 @@
 package android.bignerdranch.criminalIntent.database;
 
-import android.bignerdranch.criminalIntent.Crime;
-import android.bignerdranch.criminalIntent.database.CrimeDbSchema.CrimeTable;
+import android.bignerdranch.criminalIntent.Checkins;
+import android.bignerdranch.criminalIntent.database.CheckinsDbSchema.CrimeTable;
 import android.database.Cursor;
 import android.database.CursorWrapper;
 
 import java.util.Date;
 import java.util.UUID;
 
-public class CrimeCursorWrapper extends CursorWrapper {
-    public CrimeCursorWrapper(Cursor cursor) {
+public class CheckinsCursorWrapper extends CursorWrapper {
+    public CheckinsCursorWrapper(Cursor cursor) {
         super(cursor);
     }
 
-    public Crime getCrime() {
+    public Checkins getCrime() {
         String uuidString = getString(getColumnIndex(CrimeTable.Cols.UUID));
         String title = getString(getColumnIndex(CrimeTable.Cols.TITLE));
         long date = getLong(getColumnIndex(CrimeTable.Cols.DATE));
@@ -24,17 +24,17 @@ public class CrimeCursorWrapper extends CursorWrapper {
         Double latitude = getDouble(getColumnIndex(CrimeTable.Cols.LATITUDE));
         Double longitude = getDouble(getColumnIndex(CrimeTable.Cols.LONGITUDE));
 
-        Crime crime = new Crime(UUID.fromString(uuidString));
-        crime.setTitle(title);
-        crime.setDate(new Date(date));
-        crime.setPlace(place);
-        crime.setDetails(details);
-        crime.setSolved(isSolved != 0);
-        crime.setSuspect(suspect);
-        crime.setLatitude(latitude);
-        crime.setLongitude(longitude);
+        Checkins checkins = new Checkins(UUID.fromString(uuidString));
+        checkins.setTitle(title);
+        checkins.setDate(new Date(date));
+        checkins.setPlace(place);
+        checkins.setDetails(details);
+        checkins.setSolved(isSolved != 0);
+        checkins.setSuspect(suspect);
+        checkins.setLatitude(latitude);
+        checkins.setLongitude(longitude);
 
-        return crime;
+        return checkins;
         //return null;
     }
 }

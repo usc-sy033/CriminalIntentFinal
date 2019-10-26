@@ -1,11 +1,9 @@
 package android.bignerdranch.criminalIntent;
 
-import org.json.JSONObject;
-
 import java.util.Date;
 import java.util.UUID;
 
-public class Crime {
+public class Checkins {
 
     private UUID mId;
     private String mTitle;
@@ -18,13 +16,13 @@ public class Crime {
     private boolean mSolved;
     private String mSuspect;
 
-    public Crime() {
+    public Checkins() {
         this(UUID.randomUUID());
         //mId = UUID.randomUUID();
         //mDate = new Date();
     }
 
-    public Crime(UUID id) {
+    public Checkins(UUID id) {
         mId = id;
         mDate = new Date();
     }

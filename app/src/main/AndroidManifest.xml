@@ -45,7 +45,7 @@
 
 
         </activity>
-        <activity android:name=".CrimeListActivity">
+        <activity android:name=".CheckinsListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,8 +53,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CrimeActivity"
-            android:parentActivityName=".CrimeListActivity"></activity>
+            android:name=".CheckinsActivity"
+            android:parentActivityName=".CheckinsListActivity"></activity>
 
         <provider
             android:name="androidx.core.content.FileProvider"
